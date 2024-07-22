@@ -75,7 +75,7 @@ bool updateSnake(entt::registry & registry)
 	auto view = registry.view<SnakeHead>();
 	for (auto entity : view)
 	{
-		return view.get(entity).update();
+		return view.get<SnakeHead>(entity).update();
 	}
 
 	return false;
@@ -143,7 +143,7 @@ void moveSnake(entt::registry& registry)
 
 void destroySnake(entt::registry & registry)
 {
-	registry.reset<SnakeHead>();
-	registry.reset<SnakeBody>();
-	registry.reset<SnakeTail>();
+	registry.clear<SnakeHead>();
+	registry.clear<SnakeBody>();
+	registry.clear<SnakeTail>();
 }

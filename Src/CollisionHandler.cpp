@@ -37,7 +37,7 @@ void checkPlayerCollision(entt::registry & registry)
 	auto view = registry.view<Collider>();
 	for (auto entity : view)
 	{
-		auto& col = view.get(entity);
+		auto& col = view.get<Collider>(entity);
 		
 		//game over collision
 		if (col.layer == ColliderLayer::CL_snakebody || col.layer == ColliderLayer::CL_boundary)

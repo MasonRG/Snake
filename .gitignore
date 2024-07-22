@@ -23,3 +23,17 @@
 # =========== #
 *.dll
 *.xcf
+
+
+
+# =========== #
+# Cmake Files #
+# =========== #
+cmake-build-*/
+[Bb]uild/
+
+# =========== #
+# IDE Files #
+# =========== #
+.idea/
+.cache/

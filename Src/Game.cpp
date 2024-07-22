@@ -171,14 +171,14 @@ void Game::render(entt::registry& registry)
 	auto sprView = registry.view<Sprite>();
 	for (auto entity : sprView)
 	{
-		sprView.get(entity).render();
+		sprView.get<Sprite>(entity).render();
 	}
 
 	//render text
 	auto txtView = registry.view<Text>();
 	for (auto entity : txtView)
 	{
-		txtView.get(entity).render();
+		txtView.get<Text>(entity).render();
 	}
 
 	SDL_RenderPresent(renderer);
@@ -189,16 +189,16 @@ void Game::cleanEntt(entt::registry& registry)
 	auto sprView = registry.view<Sprite>();
 	for (auto e : sprView)
 	{
-		sprView.get(e).clean();
+		sprView.get<Sprite>(e).clean();
 	}
 
 	auto txtView = registry.view<Text>();
 	for (auto e : txtView)
 	{
-		txtView.get(e).clean();
+		txtView.get<Text>(e).clean();
 	}
 
-	registry.reset();
+	registry.clear();
 
 	LOG("EnTT Cleaned");
 }
